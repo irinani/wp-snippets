@@ -1,0 +1,117 @@
+.accordion {
+  &__item {
+    margin-bottom: 2px;
+    overflow: hidden;
+  }
+
+  &__button {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-top: 1.25rem;
+    padding-left: 2rem;
+    padding-right: 3.5rem;
+    padding-bottom: 1.25rem;
+    border-radius: 0;
+    text-align: left;
+    color: $color-body;
+    background: $gray-light2;
+
+    &:before {
+      border-radius: 0;
+    }
+
+    &:hover,
+    &:focus {
+      background: $blue-dark;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+
+      .accordion__button-icon:before,
+      .accordion__button-icon:after {
+        background: $white;
+      }
+    }
+
+    &.is-toggled {
+      color: $white;
+      background: $primary;
+
+      .accordion__button-icon {
+        &:before {
+          opacity: 0;
+        }
+
+        &:after {
+          background: $white;
+        }
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      top: 1rem;
+      right: 0.5rem;
+      width: 30px;
+      height: 30px;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 30px;
+        background: $color-body;
+        transition: $transition-m;
+      }
+
+      &:after {
+        transform: rotate(-90deg);
+        z-index: 2;
+      }
+    }
+  }
+
+  &__content {
+    font-size: $font-size-s;
+    color: $blue;
+    transition: $transition-m;
+    overflow: hidden;
+
+    pre {
+      font-size: 1rem !important;
+      color: $color-body;
+    }
+  }
+
+  &__inner {
+    padding: rem(40) rem(70);
+    background: #F1F3F5;
+
+    >* {
+      max-width: rem(440);
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .arrow-link {
+      padding-left: 1rem;
+      font-size: $font-size-s;
+      text-decoration: none;
+
+      &:before {
+        width: 8px;
+        height: 13px;
+        background-size: 8px 13px;
+      }
+    }
+  }
+}
